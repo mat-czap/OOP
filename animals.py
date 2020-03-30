@@ -77,11 +77,7 @@ class Birds(Animals):
         return f"Wingspan: {str(self.wingspan)}, isTalk: {str(self.isTalk)}"
 
 
-# class Birds(Animals):
-#     def __init__(self, line):
-#         super().__init__(line)
-#         self.wingspan: int = False
-#         self.TalksOrMute = False
+
 
 with open("animalsData.txt") as data:
     lines = [line.rstrip() for line in data.readlines()]
@@ -90,18 +86,6 @@ with open("animalsData.txt") as data:
     for index in range(0, len(lines) - 1, 2):
         newList.append(AnimalRecord(GeneralInfo(*lines[index].split(" ")), lines[index + 1]))
 
-
-# animals_obj =[]
-# for x in newList:
-#     animals_obj.append(Animals(x[0]))
-#
-# for Animal_properties in newList:
-#     line = Animal_properties.general_info.split(" ")
-#     spice = line[1]
-#     print(spice)
-
-
-# print(animals_obj[0])
 
 def Factory(el: AnimalRecord) -> IAnimal:
     if el.general_info.animal_type == "Mammal":
@@ -119,16 +103,3 @@ for line in newList:
 
 pprint.pprint(name_to_animal)
 
-# names = [name for name in name_to_animal.keys()]
-# pprint.pprint(names)
-#
-# name = input(f"pass the name of animal {list(name_to_animal.keys())}:\n")
-# requestedAnimal = name_to_animal[name]
-# print(requestedAnimal)
-# method = input("pass the method:\n")
-
-
-# print(requestedAnimal)
-
-test_list = [x for x in range(10)]
-print(test_list[::-2])
